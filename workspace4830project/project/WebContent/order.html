@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+<meta charset="utf-8" />
+<head>
+
+    <style>
+
+        .title{
+            background-color: pink;
+            padding: 10px;
+            margin: -8px;
+            height: 100px;
+
+        }
+        .content{
+            background-color: #F5F5DC;
+            padding: 10px;
+            margin: -8px;
+            position: relative;
+        }
+
+        h1
+        {
+            background-color: pink;
+            padding: 20px;
+            color: #FA8072;
+            text-align: center;
+            font-family: verdana;
+            font-size: 150%;
+
+        }
+        p
+        {
+            text-align: center;
+            color: black;
+            font-family: serif;
+            font-size: 110%;
+
+        }
+        select
+        {
+            right: 150px;
+            width: 200px;
+            height: 120px;
+        }
+        h2
+        {
+            text-align: center;
+            color: blue;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<div class="title"> 
+<img src="teamlogo.jpg" width="80" height="100" alt= "Pineapple Online Restaurant"align="left">
+<h1 style="color: yellow;">Pineapple Online Restuarant </h1>
+</div>
+
+<div class="content">
+
+
+
+    <p style = "color: #FF7F50;"> If you have encountered with some problems? Please leave the comment, and we will contact you as soon as we can</p>
+    <p> Thank you for choosing JY delivery </p>
+
+    <form action="order.html" method="get">
+
+        <p>  Do you need artificial consultation?: <input type="radio" name="Y" value="Yes" required> Yes
+            <input type="radio" name="Y" value="No"required> No <br></p>
+
+
+        <p> How many people do you have?: <input type="radio" name=" " value="1or2"required> 1 ~ 2
+            <input type="radio" name=" " value="2or4"required> 2 ~ 4
+            <input type="radio" name=" " value=">4"required> More than 4 <br></p>
+
+        <p> First Name: <input type="text" name=" "required><br></p>
+        <p> Last Name: <input type="text" name=" "required><br></p>
+        <p> Email Address: <input type="email" name=" "required><br> </p>
+        <p> ZIP Code: <input type="rel" maxlength="5" name=" " required><br></p>
+        <p style="color:red;font-size: 150%;">  Menu: </p>
+        <h2><select name=" " size="4" multiple required>
+            <optgroup label="Appetizer">
+                <option>Fried-chicken-wings</option>
+                <option>Spring-rolls</option>
+                <option>Salad</option></optgroup>
+        </select>
+            <br>
+            <select name=" " size="3" multiple required>
+                <optgroup label="Soup"></optgroup>
+                    <option>Hot-and-sour-soup</option>
+                    <option>Egg-soup</option>
+            </select>
+            <br>
+            <select name=" " size="10" multiple required>
+                <optgroup label="Entree"></optgroup>
+                    <option>Orange-chicken</option>
+                    <option>Sesame-chicken</option>
+                    <option>Beef-with-broccoli</option>
+                    <option>Mongolian-beef</option>
+                    <option>Moo-Shu-pork</option>
+                    <option>Pork-with-bell-pepper</option>
+            </select>
+        </h2>
+
+        <p style="margin-left:50px;"> Select your extra requirement: </p>
+        <h2>
+            <select name=" " size="14" multiple required>
+                <optgroup label="Free requirement">
+                    <option>Extra-Entree</option>
+                    <option>Less-Spicy</option>
+                    <option>Beverage-Without-Ice</option></optgroup>
+                <optgroup label="Extra fee requirement">
+                    <option>Helicopter-Delivery</option>
+                    <option>Highest-Level-Cookers</option></optgroup>
+            </select>
+        </h2>
+
+        <p> Where did you hear about us?:<br>
+            <textarea name=" " rows="5" cols="30" required></textarea></p>
+
+        <p><input type="submit" name = " " value="submit" />
+            <input type="reset" value="Reset!"> </p>
+<p><a href="home.html">Go Back to Home Page</a>.<P>
+    </form>
+
+</div>
+
+</body>
+
+
+</html>
