@@ -17,7 +17,7 @@ public class DBConnection {
 
 		connection = null;
 		try {
-			String url = "jdbc:mysql://ec2-18-217-7-101.us-east-2.compute.amazonaws.com:3306/tech";
+			String url = "jdbc:mysql://ec2-18-217-7-101.us-east-2.compute.amazonaws.com:3306/project";
 			String user = "newmysqlremoteuser";
 			String password = "mypassword";
 			connection = DriverManager.getConnection(url, user, password);

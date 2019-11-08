@@ -45,9 +45,10 @@ public class Register extends HttpServlet {
 		String email = request.getParameter("email");
         String password = request.getParameter("psw");
         String name = request.getParameter("name");
+        String phone = request.getParameter("phone");
         
         Connection connection = null;
-        String sql = "INSERT INTO exercise (id, EMAIL, PASSWORD, NAME) values (default, ?, ?, ?)";
+        String sql = "INSERT INTO user (id, EMAIL, PASSWORD, NAME, PHONE) values (default, ?, ?, ?, ?)";
         try
         {
         	DBConnection.getDBConnection();
@@ -55,7 +56,8 @@ public class Register extends HttpServlet {
             PreparedStatement preparedStmt = connection.prepareStatement(sql);
             preparedStmt.setString(1, email);
             preparedStmt.setString(2, password);
-            preparedStmt.setString(3, name);        
+            preparedStmt.setString(3, name);      
+            preparedStmt.setString(4, phone);   
             preparedStmt.execute();
             connection.close();
         } catch (Exception e) {
@@ -74,7 +76,8 @@ public class Register extends HttpServlet {
               "<ul>\n" + //
               "  <li><b>User Name</b>: " + name + "\n" + //
               "  <li><b>Email</b>: " + email + "\n" + //
-              "  <li><b>password</b>: " + password + "\n" + //
+              "  <li><b>Password</b>: " + password + "\n" + //
+              "  <li><b>Phone</b>: " + phone + "\n" + //
 
         "<p>Sign in here <a href=\"login.html\">Sign in</a>.</p>" +
 

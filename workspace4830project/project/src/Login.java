@@ -47,7 +47,7 @@ public class Login extends HttpServlet {
         
         boolean tem = false;
         Connection connection = null;
-        String sql = "SELECT * FROM exercise WHERE EMAIL=? and PASSWORD=?";
+        String sql = "SELECT * FROM user WHERE EMAIL=? and PASSWORD=?";
         String a = "Sorry, wrong password or email, plz try again";
         try
         {
