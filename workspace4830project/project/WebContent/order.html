@@ -6,13 +6,11 @@
 <head>
 
     <style>
-
         .title{
             background-color: pink;
             padding: 10px;
             margin: -8px;
             height: 100px;
-
         }
         .content{
             background-color: #F5F5DC;
@@ -20,7 +18,26 @@
             margin: -8px;
             position: relative;
         }
-
+        .left {
+ 			
+ 			margin-left: 300px;
+		 	margin-right: auto;
+		}
+		.right {
+ 			
+ 			margin-left: auto;
+		 	margin-right: auto;
+  			
+		}
+		.inline-block {
+   			display: inline-block;
+		}
+		 .center {
+ 			display: block;
+ 			margin-left: auto;
+		 	margin-right: auto;
+  			width: 42%;
+		}
         h1
         {
             background-color: pink;
@@ -29,7 +46,6 @@
             text-align: center;
             font-family: verdana;
             font-size: 150%;
-
         }
         p
         {
@@ -37,7 +53,6 @@
             color: black;
             font-family: serif;
             font-size: 110%;
-
         }
         select
         {
@@ -49,9 +64,9 @@
         {
             text-align: center;
             color: blue;
-
+            width: 100%;
         }
-
+       
     </style>
 
 </head>
@@ -60,7 +75,7 @@
 
 
 <div class="title"> 
-<img src="teamlogo.jpg" width="80" height="100" alt= "Pineapple Online Restaurant"align="left">
+<img src="teamlog.jpg" width="80" height="100" alt= "Pineapple Online Restaurant"align="left">
 <h1 style="color: yellow;">Pineapple Online Restuarant </h1>
 </div>
 
@@ -73,25 +88,99 @@
 
     <form action="order.html" method="get">
 
-        <p>  Do you need artificial consultation?: <input type="radio" name="Y" value="Yes" required> Yes
-            <input type="radio" name="Y" value="No"required> No <br></p>
-
 
         <p> How many people do you have?: <input type="radio" name=" " value="1or2"required> 1 ~ 2
             <input type="radio" name=" " value="2or4"required> 2 ~ 4
             <input type="radio" name=" " value=">4"required> More than 4 <br></p>
 
-        <p> First Name: <input type="text" name=" "required><br></p>
-        <p> Last Name: <input type="text" name=" "required><br></p>
-        <p> Email Address: <input type="email" name=" "required><br> </p>
-        <p> ZIP Code: <input type="rel" maxlength="5" name=" " required><br></p>
         <p style="color:red;font-size: 150%;">  Menu: </p>
-        <h2><select name=" " size="4" multiple required>
-            <optgroup label="Appetizer">
-                <option style="background-image:url(teamlogo.jpg);">Fried-chicken-wings</option>
+     	<p style = "color: #FF7F50;"> Click the image for more detail like protein or calories</p>
+		<div class="inline-block">
+		<a href="guest.html">
+         <img alt="Fried" src="Fried.png" class = "left" width="400" height="360">
+     	</a>
+		<p class="left"> Fried the chicken wings</p>
+		</div>
+		
+		 <div class="inline-block">
+		<a href="guest.html"> <!-- 转换页面到detail -->
+         <img alt="Eggs" src="Eggs.jpg" class = "right" width="400" height="360">
+     	</a>
+     	<p> Eggs drop soup </p>
+     	</div>
+
+     	
+     	<div class="inline-block">
+		<a href="guest.html"><!-- 转换页面到detail -->
+         <img alt="Springroll" src="Springroll.jpg" class = "left" width="400" height="360">
+     	</a>
+     	<p class="left"> Spring rolls</p>
+     	</div>
+     	<div class="inline-block">
+		<a href="guest.html"><!-- 转换页面到detail -->
+         <img alt="hot-sour-soup" src="hot_soup.jpg" class = "right" width="400" height="360">
+     	</a>
+     	<p> Hot Sour Soup </p>
+     	</div>
+     	
+     	
+     	<div class="inline-block">
+		<a href="guest.html"><!-- 转换页面到detail -->
+         <img alt="Orange" src="Orange.jpg" class = "left" width="400" height="360">
+     	</a>
+     	<p class="left"> Orange Chicken</p>
+     	</div>
+     	<div class="inline-block">
+		<a href="guest.html"><!-- 转换页面到detail -->
+         <img alt="Salad" src="Salad.jpg" class = "right" width="400" height="360">
+     	</a>
+     	<p> Vegetable Salad</p>
+     	</div>
+     	
+     	
+     	<div class="inline-block">
+		<a href="guest.html"><!-- 转换页面到detail -->
+         <img alt="Seasame chicken" src="Seasame.jpg" class = "left" width="400" height="360">
+     	</a>
+     	<p class="left"> Sesame Chicken</p>
+     	</div>
+     	<div class="inline-block">
+		<a href="guest.html"><!-- 转换页面到detail -->
+         <img alt="Mogolian beef" src="Mogo.jpg" class = "right" width="400" height="360">
+     	</a>
+     	<p> Mongolian-beef</p>
+     	</div>
+     	
+     	<div class="inline-block">
+		<a href="guest.html"><!-- 转换页面到detail -->
+         <img alt="Moso-Pork" src="Muxu.jpg" class = "left" width="400" height="360">
+     	</a>
+     	<p class="left"> Moo-shu Pork</p>
+     	</div>
+     	<div class="inline-block">
+		<a href="guest.html"><!-- 转换页面到detail -->
+         <img alt="Beef-bro" src="Beef.jpg" class = "right" width="400" height="360">
+     	</a>
+     	<p>Beef-with-broccoli</p>
+     	</div>
+     	
+     	<div class="center">
+		<a href="guest.html"><!-- 转换页面到detail -->
+         <img alt="Pork-with-bell-pepper" src="Bellepork.jpg" height="360">
+     	</a>
+     	<p> Pork-with-bell-pepper</p>
+     	</div>
+    
+     	<p> Click the image for more detail like protein or calories </p>
+     	
+     	
+       <!--   <h2><select id="dish" multiple required>
+           <optgroup label="Appetizer">
+            	
+                <option>Fried-chicken-wings</option>
                 <option>Spring-rolls</option>
-                <option>Salad</option></optgroup>
-        </select>
+                <option>Salad</option>  </optgroup>
+        	</select>
             <br>
             <select name=" " size="3" multiple required>
                 <optgroup label="Soup"></optgroup>
@@ -108,13 +197,13 @@
                     <option>Moo-Shu-pork</option>
                     <option>Pork-with-bell-pepper</option>
             </select>
-        </h2>
+        </h2>-->
 
-        <p style="margin-left:50px;"> Select your extra requirement: </p>
+        <p style="margin-left:10px; color: green;"> Select your extra requirement: </p>
         <h2>
-            <select name=" " size="14" multiple required>
-                <optgroup label="Free requirement">
-                    <option>Extra-Entree</option>
+            <select style="width:50%;" name=" " size="14" multiple required>
+               <optgroup label="Free requirement">
+                    <option >Extra-Entree</option>
                     <option>Less-Spicy</option>
                     <option>Beverage-Without-Ice</option></optgroup>
                 <optgroup label="Extra fee requirement">
