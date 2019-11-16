@@ -2,26 +2,17 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
 
-import java.io.PrintWriter;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import datamodel.User;
 
 /**
  * Servlet implementation class Login
@@ -44,7 +35,7 @@ public class Login extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String email = request.getParameter("email");
         String password = request.getParameter("password");
-        
+
         boolean tem = false;
         Connection connection = null;
         String sql = "SELECT * FROM user WHERE EMAIL=? and PASSWORD=?";
@@ -58,9 +49,6 @@ public class Login extends HttpServlet {
             preparedStmt.setString(2, password);
             ResultSet rs = preparedStmt.executeQuery();
             while (rs.next()) {
-                int id = rs.getInt("id");
-                String emailtem = rs.getString("email").trim();
-                String passwordtem= rs.getString("password").trim();
                 String userNametem = rs.getString("name").trim();
                 a = "Congratulation!! User: " + userNametem;
                 tem = true;
@@ -81,7 +69,7 @@ public class Login extends HttpServlet {
               "<h2 align=\"center\">" + title + "</h2>\n" + //
               "<ul>\n" + //
               "  <li><b></b> " + a + "\n" + //
-
+              "<p>Try to login again here <a href=\"login.html\">Sign in</a>.</p>" +
                 "</ul>\n");
         out.println("</body></html>");
         if (tem == true)

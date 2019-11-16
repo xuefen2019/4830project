@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 
-
 <html lang="en">
 <meta charset="utf-8" />
 <head>
@@ -18,19 +17,26 @@
             margin: -8px;
             position: relative;
         }
-        .center {
- 			display: block;
- 			margin-left: auto
+        .left {
+ 			
+ 			margin-left: 300px;
 		 	margin-right: auto;
-  			width: 50%;
 		}
-        footer {
-            background-color:black;
-            color:white;
-            clear:both;
-            text-align:center;
-            padding:5px;
-        }
+		.right {
+ 			
+ 			margin-left: auto;
+		 	margin-right: auto;
+  			
+		}
+		.inline-block {
+   			display: inline-block;
+		}
+		 .center {
+ 			display: block;
+ 			margin-left: auto;
+		 	margin-right: auto;
+  			width: 42%;
+		}
         h1
         {
             background-color: pink;
@@ -53,12 +59,7 @@
             width: 200px;
             height: 120px;
         }
-        h2
-        {
-            text-align: center;
-            color: blue;
-        }
-        
+       
     </style>
 
 </head>
@@ -68,24 +69,95 @@
 
 <div class="title"> 
 <img src="teamlogo.jpg" width="80" height="100" alt= "Pineapple Online Restaurant"align="left">
-<h1 style="color: yellow;">Pineapple Online Restaurant </h1>
+<h1 style="color: yellow;">Pineapple Online Restuarant </h1>
 </div>
 
 <div class="content">
 <p>Guest Page<P>
+<p style = "color: #FF7F50;">IF YOU WANT TO ENJOY OUR SERVICE, PLEASE REGISTER AND LOGIN IN AS OUR CUSTOMER!!<P>
 
-	<i> Here are some example to show how many wonderful Delivery food we have!</i>
-	
-	<a href="order.html">
-         <img alt="Fried" src="Fried.png" class="center" width="100" height="200">
-      </a>
 
+    <form action="order.html" method="get">
+
+		<div class="inline-block">
+		<a>
+         <img alt="Fried" src="Food/Fried.png" class = "left" width="400" height="360">
+     	</a>
+		<p class="left"> Fried the chicken wings</p>
+		</div>
+		
+		 <div class="inline-block">
+		<a> 
+         <img alt="Eggs" src="Food/Eggs.jpg" class = "right" width="400" height="360">
+     	</a>
+     	<p> Eggs drop soup </p>
+     	</div>
+
+     	
+     	<div class="inline-block">
+		<a>
+         <img alt="Springroll" src="Food/Springroll.jpg" class = "left" width="400" height="360">
+     	</a>
+     	<p class="left"> Spring rolls</p>
+     	</div>
+     	<div class="inline-block">
+		<a>
+         <img alt="hot-sour-soup" src="Food/hot_soup.jpg" class = "right" width="400" height="360">
+     	</a>
+     	<p> Hot Sour Soup </p>
+     	</div>
+     	
+     	
+     	<div class="inline-block">
+		<a>
+         <img alt="Orange" src="Food/Orange.jpg" class = "left" width="400" height="360">
+     	</a>
+     	<p class="left"> Orange Chicken</p>
+     	</div>
+     	<div class="inline-block">
+		<a>
+         <img alt="Salad" src="Food/Salad.jpg" class = "right" width="400" height="360">
+     	</a>
+     	<p> Vegetable Salad</p>
+     	</div>
+     	
+     	
+     	<div class="inline-block">
+		<a>
+         <img alt="Seasame chicken" src="Food/Seasame.jpg" class = "left" width="400" height="360">
+     	</a>
+     	<p class="left"> Sesame Chicken</p>
+     	</div>
+     	<div class="inline-block">
+		<a>
+         <img alt="Mogolian beef" src="Food/Mogo.jpg" class = "right" width="400" height="360">
+     	</a>
+     	<p> Mongolian-beef</p>
+     	</div>
+     	
+     	<div class="inline-block">
+		<a>
+         <img alt="Moso-Pork" src="Food/Muxu.jpg" class = "left" width="400" height="360">
+     	</a>
+     	<p class="left"> Moo-shu Pork</p>
+     	</div>
+     	<div class="inline-block">
+		<a>
+         <img alt="Beef-bro" src="Food/Beef.jpg" class = "right" width="400" height="360">
+     	</a>
+     	<p>Beef-with-broccoli</p>
+     	</div>
+     	
+     	<div class="center">
+		<a >
+         <img alt="Pork-with-bell-pepper" src="Food/Bellepork.jpg" height="360">
+     	</a>
+     	<p> Pork-with-bell-pepper</p>
+     	</div>
+
+     	
 <p><a href="home.html">Go Back to Home Page</a>.<P>
+    </form>
 </div>
-    <footer>
-        Contact Us: +01 402-378-6977
-    </footer>
-    <footer>
-        Copyright
-    </footer>
+</body>
 </html>
