@@ -1,92 +1,40 @@
-<!DOCTYPE html>
-
-
+<!doctype html>
 <html lang="en">
-<meta charset="utf-8" />
-<head>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
 
-    <style>
+    <title>Signin Template for Bootstrap</title>
 
-        .title{
-            background-color: pink;
-            padding: 10px;
-            margin: -8px;
-            height: 100px;
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sign-in/">
 
-        }
-        .content{
-            background-color: #F5F5DC;
-            padding: 10px;
-            margin: -8px;
-            position: relative;
-        }
-        footer {
-            background-color:black;
-            color:white;
-            clear:both;
-            text-align:center;
-            padding:5px;
-        }
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap.min.css" rel="stylesheet">
 
-        h1
-        {
-            background-color: pink;
-            padding: 20px;
-            color: #FA8072;
-            text-align: center;
-            font-family: verdana;
-            font-size: 150%;
+    <!-- Custom styles for this template -->
+    <link href="signin.css" rel="stylesheet">
+  </head>
 
-        }
-        p
-        {
-            text-align: center;
-            color: black;
-            font-family: serif;
-            font-size: 110%;
-
-        }
-        select
-        {
-            right: 150px;
-            width: 200px;
-            height: 120px;
-        }
-        h2
-        {
-            text-align: center;
-            color: blue;
-
-        }
-
-    </style>
-
-</head>
-
-<body>
-
-
-<div class="title"> 
-<img src="teamlogo.jpg" width="80" height="100" alt= "Pineapple Online Restaurant"align="left">
-<h1 style="color: yellow;">Pineapple Online Restaurant </h1>
-</div>
-	  <div class="content">
-	<form action="/project/Login" method="POST">
-	<p>	Email: <input type="text" name="email"> <br />  </p>
-	<p>	Password: <input type="password" name="password"> <br /> </p>
-	<p>	<input type="submit" value="login" /> </p>
-<p>Test Account: <p>      
-<p>Email:test@gmail.com<p>
-<p>Password:test<p>
-<p><a href="home.html">Go Back to Home Page</a>.<P>
-	</form>
-    <hr>
-    <footer>
-        Contact Us: +01 402-378-6977
-    </footer>
-    <footer>
-        Copyright
-    </footer>
-</div>
-</body>
+  <body class="text-center">
+    <form action ="/project/Login" method="post">
+      <img class="mb-4" src="teamlogo.jpg" alt="" width="100" height="100">
+      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1><br>
+      <label for="inputEmail" class="sr-only">Email address</label>
+      <input type="email" name="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" name="inputPassword" class="form-control" placeholder="Password" required>
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <p class="mt-5 mb-3 text-muted">&copy; admin account: admin@unomaha.edu, admin;</p>
+            <p class="mt-5 mb-3 text-muted">&copy; customr account: test@gmail.com, test;</p>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      <p class="mt-5 mb-3 text-muted">&copy; 2019-2020 Pineapple Online Order</p>
+    </form>
+  </body>
 </html>

@@ -1,0 +1,23 @@
+<html>
+<head>
+    <link rel="stylesheet" href="rate.css">
+</head>
+<body>
+<div id="app">
+
+    <h2>You Have Completed Your order, plz rate our service</h2>
+    <div @mouseleave="showCurrentRating(0)" style="display:inline-block;">
+        <star-rating :show-rating="false" @current-rating="showCurrentRating" @rating-selected="setCurrentSelectedRating" :increment="0.5"></star-rating>
+    </div>
+    <div style="margin-top:10px;font-weight:bold;">{{currentRating}}</div>
+
+	<p>You can click order details to view your order status!</p>
+	<a href="customer.html">go back to home page</a>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-star-rating/dist/star-rating.min.js"></script>
+<script src="rate.js"></script>
+</body>
+</html>

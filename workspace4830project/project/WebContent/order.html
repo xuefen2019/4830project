@@ -1,241 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<meta charset="utf-8" />
+<html>
 <head>
-
-    <style>
-        .title{
-            background-color: pink;
-            padding: 10px;
-            margin: -8px;
-            height: 100px;
-        }
-        .content{
-            background-color: #F5F5DC;
-            padding: 10px;
-            margin: -8px;
-            position: relative;
-        }
-        .left {
- 			
- 			margin-left: 300px;
-		 	margin-right: auto;
-		}
-		.right {
- 			
- 			margin-left: auto;
-		 	margin-right: auto;
-  			
-		}
-		.inline-block {
-   			display: inline-block;
-		}
-		 .center {
- 			display: block;
- 			margin-left: auto;
-		 	margin-right: auto;
-  			width: 42%;
-		}
-        h1
-        {
-            background-color: pink;
-            padding: 20px;
-            color: #FA8072;
-            text-align: center;
-            font-family: verdana;
-            font-size: 150%;
-        }
-        p
-        {
-            text-align: center;
-            color: black;
-            font-family: serif;
-            font-size: 110%;
-        }
-        select
-        {
-            right: 150px;
-            width: 200px;
-            height: 120px;
-        }
-        h2
-        {
-            text-align: center;
-            color: blue;
-            width: 100%;
-        }
-       
-    </style>
-
+    <link rel="stylesheet" href="order.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
-
 <body>
 
+<div id="app">
+    <div class="title-container">
+        <div>
+            <h3 class="title">
+                <img src="teamlogo.jpg" width="60" height="80" alt= "Pineapple Online Restaurant" align="left">
+                Pineapple Online Restaurant
+                <img src="teamlogo.jpg" width="60" height="80" alt= "Pineapple Online Restaurant" align="right">
+            </h3>
+        </div>
+        <div class="filters">
+            <span class="filter" v-bind:class="{ active: currentFilter === 'ALL' }" v-on:click="setFilter('ALL')">ALL</span>
+            <span class="filter" v-bind:class="{ active: currentFilter === 'Appetizer' }" v-on:click="setFilter('Appetizer')">Appetizer</span>
+            <span class="filter" v-bind:class="{ active: currentFilter === 'Pork' }" v-on:click="setFilter('Pork')">Pork</span>
+            <span class="filter" v-bind:class="{ active: currentFilter === 'Beef' }" v-on:click="setFilter('Beef')">Beef</span>
+            <span class="filter" v-bind:class="{ active: currentFilter === 'Chicken' }" v-on:click="setFilter('Chicken')">Chicken</span>
+        </div>
+    </div>
 
-<div class="title"> 
-<img src="teamlogo.jpg" width="80" height="100" alt= "Pineapple Online Restaurant"align="left">
-<h1 style="color: yellow;">Pineapple Online Restuarant </h1>
+    <transition-group class="projects" name="projects" >
+        <div class="project" v-if="currentFilter === project.category || currentFilter === 'ALL'" v-bind:key="project.title" v-for="(project, idx) in projects" >
+            <div class="project-image-wrapper">
+                <img class="project-image" :src="project.image" @click="nutrition(idx)" type="button" height="600" width="400">
+                <div class="gradient-overlay" @click="nutrition(idx)"></div>
+                <div class="circle">
+                    <span class="project-title">{{project.title}}</span>
+                </div>
+                <p>Order button&nbsp;&nbsp;::::::::::::::&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Calories:<br />
+                    &nbsp;&nbsp;<button v-on:click="increase(idx)">+</button>  &nbsp;&nbsp;
+                    <button v-on:click="decrease(idx)">-</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    66666&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{ project.calories*project.counter }}<br />
+                </p>
+                <p align="right"> Amount: {{ project.counter }}</p>
+            </div>
+        </div>
+    </transition-group>
+    	<form action="/project/Order" method="POST">
+		<input class="favorite styled" type="submit" name= "submit" id="submit" @click="result()" value="Confirm Order"/>
+        </form>
 </div>
-
-<div class="content">
-
-
-
-    <p style = "color: #FF7F50;"> If you have encountered with some problems? Please leave the comment, and we will contact you as soon as we can</p>
-    <p> Thank you for choosing JY delivery </p>
-
-    <form action="order" method="get">
-
-
-        <p> How many people do you have?: <input type="radio" name="1or2" value="1or2"required> 1 ~ 2
-            <input type="radio" name="2or4" value="2or4"required> 2 ~ 4
-            <input type="radio" name=">4" value=">4"required> More than 4 <br></p>
-
-        <p style="color:red;font-size: 150%;">  Menu: </p>
-     	<p style = "color: #FF7F50;"> Click the image for more detail like protein or calories</p>
-		<div class="inline-block">
-		<a href="Fried.html">
-         <img alt="Fried" src="Food/Fried.png" class = "left" width="400" height="360">
-     	</a>
-		 <p class="left"> Fried chicken wings: 
-		 <input type="radio" name="FriedChicken1" value="One"> One
-         <input type="radio" name="FriedChicken2" value="Two"> Two
-         <input type="radio" name="FriedChickenMore" value="More"> More
-         </p>   
-		</div>
-		
-		 <div class="inline-block">
-		<a href="Eggs.html"> 
-         <img alt="Eggs" src="Food/Eggs.jpg" class = "right" width="400" height="360">
-     	</a>
-     	<p> Eggs drop soup 
-     	 <input type="radio" name="Egg1" value="One"> One
-         <input type="radio" name="Egg2" value="Two"> Two
-         <input type="radio" name="EggMore" value="More"> More
-         </p> 
-     	</div>
-
-     	
-     	<div class="inline-block">
-		<a href="Springroll.html">
-         <img alt="Springroll" src="Food/Springroll.jpg" class = "left" width="400" height="360">
-     	</a>
-     	<p class="left"> Spring rolls
-     	 <input type="radio" name="Spring1" value="One"> One
-         <input type="radio" name="Spring2" value="Two"> Two
-         <input type="radio" name="SpringMore" value="More"> More
-         </p> 
-     	</div>
- 
-     	<div class="inline-block">
-		<a href="hot_soup.html">
-         <img alt="hot-sour-soup" src="Food/hot_soup.jpg" class = "right" width="400" height="360">
-     	</a>
-     	<p> Hot Sour Soup 
-     	 <input type="radio" name="Hot1" value="One"> One
-         <input type="radio" name="Hot2" value="Two"> Two
-         <input type="radio" name="HotMore" value="More"> More
-         </p> 
-     	</div>	
-     	
-     	<div class="inline-block">
-		<a href="Orange.html">
-         <img alt="Orange" src="Food/Orange.jpg" class = "left" width="400" height="360">
-     	</a>
-     	<p class="left"> Orange Chicken
-     	 <input type="radio" name="Orange1" value="One"> One
-         <input type="radio" name="Organe2" value="Two"> Two
-         <input type="radio" name="OrganeMore" value="More"> More
-         </p> 
-     	</div>
-     	
-     	<div class="inline-block">
-		<a href="Salad.html">
-         <img alt="Salad" src="Food/Salad.jpg" class = "right" width="400" height="360">
-     	</a>
-     	<p> Vegetable Salad
-     	 <input type="radio" name="Salad1" value="One"> One
-         <input type="radio" name="Salad2" value="Two"> Two
-         <input type="radio" name="SaladMore" value="More"> More
-         </p> 
-     	</div>
-     	
-     	
-     	<div class="inline-block">
-		<a href="Seasame.html">
-         <img alt="Seasame chicken" src="Food/Seasame.jpg" class = "left" width="400" height="360">
-     	</a>
-     	<p class="left"> Sesame Chicken
-     	 <input type="radio" name="Seasame1" value="One"> One
-         <input type="radio" name="Seasame2" value="Two"> Two
-         <input type="radio" name="SeasameMore" value="More"> More
-         </p> 
-     	</div>
-     	
-     	<div class="inline-block">
-		<a href="Mogo.html">
-         <img alt="Mogolian beef" src="Food/Mogo.jpg" class = "right" width="400" height="360">
-     	</a>
-     	<p> Mongolian-beef
-     	 <input type="radio" name="Mogo1" value="One"> One
-         <input type="radio" name="Mogo2" value="Two"> Two
-         <input type="radio" name="MogoMore" value="More"> More
-         </p> 
-     	</div>
-     	
-     	<div class="inline-block">
-		<a href="Muxu.html">
-         <img alt="Moso-Pork" src="Food/Muxu.jpg" class = "left" width="400" height="360">
-     	</a>
-     	<p class="left"> Moo-shu Pork
-     	 <input type="radio" name="Moo1" value="One"> One
-         <input type="radio" name="Moo2" value="Two"> Two
-         <input type="radio" name="MooMore" value="More"> More
-         </p> 
-     	</div>
-     	
-     	<div class="inline-block">
-		<a href="Beef.html">
-         <img alt="Beef-bro" src="Food/Beef.jpg" class = "right" width="400" height="360">
-     	</a>
-     	<p>Beef-with-broccoli
-     	 <input type="radio" name="Beef1" value="One"> One
-         <input type="radio" name="Beef2" value="Two"> Two
-         <input type="radio" name="BeefMore" value="More"> More
-         </p> 
-     	</div>
-     	
-     	<div class="center">
-		<a href="Bellepork.html">
-         <img alt="Pork-with-bell-pepper" src="Food/Bellepork.jpg" height="360">
-     	</a>
-     	<p> Pork-with-bell-pepper
-     	 <input type="radio" name="Pork1" value="One"> One
-         <input type="radio" name="Pork2" value="Two"> Two
-         <input type="radio" name="PorkMore" value="More"> More
-         </p> 
-     	</div>
-    
-     	<p> Click the image for more detail like protein or calories </p>
-  
-        <p style="margin-left:10px; color: green;"> Select your extra requirement: </p>
-        <p>Free requirement:
-        <input type="radio" name="Extra-Entree" value="Extra-Entree"> Extra-Entree
-        <input type="radio" name="Less-Spicy" value="Less-Spicy"> Less-Spicy
-        <input type="radio" name="Beverage-Without-Ice" value="Beverage-Without-Ice"> Beverage-Without-Ice
-        </p>
-        <p> Extra fee requirement:
-        <input type="radio" name="Helicopter-Delivery" value="Helicopter-Delivery"> Helicopter-Delivery
-        <input type="radio" name="Highest-Level-Cookers" value="Highest-Level-Cookers"> Highest-Level-Cookers       
-        </p>
-
-        <p><input type="submit" name = "submit" value="submit" />
-            <input type="reset" name = "reset" value="Reset!"> </p>
-<p><a href="home.html">Go Back to Home Page</a>.<P>
-    </form>
-</div>
-
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="order.js"></script>
 </body>
-
-
 </html>
+

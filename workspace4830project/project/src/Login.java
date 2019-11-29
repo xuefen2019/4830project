@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +21,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/Login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	public static String user = null;
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -33,10 +35,14 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String email = request.getParameter("email");
-        String password = request.getParameter("password");
-
-        boolean tem = false;
+		String email = request.getParameter("inputEmail");
+        String password = request.getParameter("inputPassword");
+		String tem2[] = email.split("@");
+		String tem3 = tem2[0];
+        user=tem3;
+        
+        int tem = 0;
+        Statement st;
         Connection connection = null;
         String sql = "SELECT * FROM user WHERE EMAIL=? and PASSWORD=?";
         String a = "Sorry, wrong password or email, plz try again";
@@ -44,14 +50,33 @@ public class Login extends HttpServlet {
         {
         	DBConnection.getDBConnection();
         	connection = DBConnection.connection;
-            PreparedStatement preparedStmt = connection.prepareStatement(sql);
+        	PreparedStatement preparedStmt = connection.prepareStatement(sql);
             preparedStmt.setString(1, email);
             preparedStmt.setString(2, password);
             ResultSet rs = preparedStmt.executeQuery();
             while (rs.next()) {
                 String userNametem = rs.getString("name").trim();
                 a = "Congratulation!! User: " + userNametem;
-                tem = true;
+                tem = 1;
+             }
+            rs.close();
+            connection.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try
+        {
+        	sql = "SELECT * FROM owner WHERE EMAIL=? and PASSWORD=?";
+        	DBConnection.getDBConnection();
+        	connection = DBConnection.connection;
+        	PreparedStatement preparedStmt = connection.prepareStatement(sql);
+            preparedStmt.setString(1, email);
+            preparedStmt.setString(2, password);
+            ResultSet rs = preparedStmt.executeQuery();
+            while (rs.next()) {
+                String userNametem = rs.getString("name").trim();
+                a = "Congratulation!! User: " + userNametem;
+                tem = 2;
              }
             rs.close();
             connection.close();
@@ -72,9 +97,13 @@ public class Login extends HttpServlet {
               "<p>Try to login again here <a href=\"login.html\">Sign in</a>.</p>" +
                 "</ul>\n");
         out.println("</body></html>");
-        if (tem == true)
+        if (tem == 1)
         {
-        response.sendRedirect("order.html");
+        response.sendRedirect("customer.html");
+        }
+        else if (tem == 2)
+        {
+        	response.sendRedirect("admin.html");
         }
 	}
 

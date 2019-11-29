@@ -1,163 +1,43 @@
-<!DOCTYPE html>
-
-<html lang="en">
-<meta charset="utf-8" />
+<html>
 <head>
-
-    <style>
-        .title{
-            background-color: pink;
-            padding: 10px;
-            margin: -8px;
-            height: 100px;
-        }
-        .content{
-            background-color: #F5F5DC;
-            padding: 10px;
-            margin: -8px;
-            position: relative;
-        }
-        .left {
- 			
- 			margin-left: 300px;
-		 	margin-right: auto;
-		}
-		.right {
- 			
- 			margin-left: auto;
-		 	margin-right: auto;
-  			
-		}
-		.inline-block {
-   			display: inline-block;
-		}
-		 .center {
- 			display: block;
- 			margin-left: auto;
-		 	margin-right: auto;
-  			width: 42%;
-		}
-        h1
-        {
-            background-color: pink;
-            padding: 20px;
-            color: #FA8072;
-            text-align: center;
-            font-family: verdana;
-            font-size: 150%;
-        }
-        p
-        {
-            text-align: center;
-            color: black;
-            font-family: serif;
-            font-size: 110%;
-        }
-        select
-        {
-            right: 150px;
-            width: 200px;
-            height: 120px;
-        }
-       
-    </style>
-
+    <link rel="stylesheet" href="guest.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
-
 <body>
 
+<div id="app">
+    <div class="title-container">
+        <div>
+            <h3 class="title">
+                <img src="teamlogo.jpg" width="60" height="80" alt= "Pineapple Online Restaurant" align="left">
+                Pineapple Online Restaurant
+                <img src="teamlogo.jpg" width="60" height="80" alt= "Pineapple Online Restaurant" align="right">
+            </h3>
+        </div>
+        <div class="filters">
+            <span class="filter" v-bind:class="{ active: currentFilter === 'ALL' }" v-on:click="setFilter('ALL')">ALL</span>
+            <span class="filter" v-bind:class="{ active: currentFilter === 'Appetizer' }" v-on:click="setFilter('Appetizer')">Appetizer</span>
+            <span class="filter" v-bind:class="{ active: currentFilter === 'Pork' }" v-on:click="setFilter('Pork')">Pork</span>
+            <span class="filter" v-bind:class="{ active: currentFilter === 'Beef' }" v-on:click="setFilter('Beef')">Beef</span>
+            <span class="filter" v-bind:class="{ active: currentFilter === 'Chicken' }" v-on:click="setFilter('Chicken')">Chicken</span>
+        </div>
+    </div>
 
-<div class="title"> 
-<img src="teamlogo.jpg" width="80" height="100" alt= "Pineapple Online Restaurant"align="left">
-<h1 style="color: yellow;">Pineapple Online Restuarant </h1>
+    <transition-group class="projects" name="projects" >
+        <div class="project" v-if="currentFilter === project.category || currentFilter === 'ALL'" v-bind:key="project.title" v-for="project in projects">
+            <div class="project-image-wrapper">
+                <img class="project-image" v-bind="project.size" :src="project.image">
+                <div class="gradient-overlay"></div>
+                <div class="circle">
+                    <span class="project-title">{{project.title}}</span>
+                </div>
+            </div>
+        </div>
+    </transition-group>
 </div>
 
-<div class="content">
-<p>Guest Page<P>
-<p style = "color: #FF7F50;">IF YOU WANT TO ENJOY OUR SERVICE, PLEASE REGISTER AND LOGIN IN AS OUR CUSTOMER!!<P>
 
 
-    <form action="order.html" method="get">
-
-		<div class="inline-block">
-		<a>
-         <img alt="Fried" src="Food/Fried.png" class = "left" width="400" height="360">
-     	</a>
-		<p class="left"> Fried the chicken wings</p>
-		</div>
-		
-		 <div class="inline-block">
-		<a> 
-         <img alt="Eggs" src="Food/Eggs.jpg" class = "right" width="400" height="360">
-     	</a>
-     	<p> Eggs drop soup </p>
-     	</div>
-
-     	
-     	<div class="inline-block">
-		<a>
-         <img alt="Springroll" src="Food/Springroll.jpg" class = "left" width="400" height="360">
-     	</a>
-     	<p class="left"> Spring rolls</p>
-     	</div>
-     	<div class="inline-block">
-		<a>
-         <img alt="hot-sour-soup" src="Food/hot_soup.jpg" class = "right" width="400" height="360">
-     	</a>
-     	<p> Hot Sour Soup </p>
-     	</div>
-     	
-     	
-     	<div class="inline-block">
-		<a>
-         <img alt="Orange" src="Food/Orange.jpg" class = "left" width="400" height="360">
-     	</a>
-     	<p class="left"> Orange Chicken</p>
-     	</div>
-     	<div class="inline-block">
-		<a>
-         <img alt="Salad" src="Food/Salad.jpg" class = "right" width="400" height="360">
-     	</a>
-     	<p> Vegetable Salad</p>
-     	</div>
-     	
-     	
-     	<div class="inline-block">
-		<a>
-         <img alt="Seasame chicken" src="Food/Seasame.jpg" class = "left" width="400" height="360">
-     	</a>
-     	<p class="left"> Sesame Chicken</p>
-     	</div>
-     	<div class="inline-block">
-		<a>
-         <img alt="Mogolian beef" src="Food/Mogo.jpg" class = "right" width="400" height="360">
-     	</a>
-     	<p> Mongolian-beef</p>
-     	</div>
-     	
-     	<div class="inline-block">
-		<a>
-         <img alt="Moso-Pork" src="Food/Muxu.jpg" class = "left" width="400" height="360">
-     	</a>
-     	<p class="left"> Moo-shu Pork</p>
-     	</div>
-     	<div class="inline-block">
-		<a>
-         <img alt="Beef-bro" src="Food/Beef.jpg" class = "right" width="400" height="360">
-     	</a>
-     	<p>Beef-with-broccoli</p>
-     	</div>
-     	
-     	<div class="center">
-		<a >
-         <img alt="Pork-with-bell-pepper" src="Food/Bellepork.jpg" height="360">
-     	</a>
-     	<p> Pork-with-bell-pepper</p>
-     	</div>
-
-     	
-<p><a href="home.html">Go Back to Home Page</a>.<P>
-    </form>
-</div>
+<script src="guest.js"></script>
 </body>
 </html>
