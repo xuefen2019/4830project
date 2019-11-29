@@ -4,10 +4,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
 	<style>
 	.container {
-	max-width: 960px;
+	max-width: 1000px;
 	}
 
 	.border-top { border-top: 1px solid #e5e5e5; }
@@ -20,28 +19,28 @@
     <title>Checkout example for Bootstrap</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="teamlog.jpg">
 
   </head>
 
   <body class="bg-light">
 
-    <div class="container">
+    <div class="container" style="alignment:center;">
       <div class="py-5 text-center">
         <img class="d-block mx-auto mb-4" src="teamlog.jpg" alt="" width="100" height="100">
         <h2>Guest Checkout Page</h2>
-           </div>
+      </div>
 
       
-       <div class="col-md-8 order-md-1">
+       <div class="col-md-0 order-md-1">
           
-          <!--  <form class="needs-validation" novalidate>-->
             
 			<form action="Order.html" method="post">
             
 
-            <h4 class="mb-3">Payment</h4>
+            <h4 class="mb-3" >Payment</h4>
 
-            <div class="d-block my-3">
+            <div class="mb-3">
               <div class="custom-control custom-radio">
                 <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
                 <label class="custom-control-label" for="credit">Credit card</label>
@@ -51,45 +50,46 @@
                 <label class="custom-control-label" for="debit">Debit card</label>
               </div>
 
-            </div>
-            <div class="row">
-              <div class="col-md-6 mb-3">
+            	<div class="col-md-0 mb-3">
                 <label for="cc-name">Name on card</label>
-                <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                <input type="text" class="form-control" id="cc-name" placeholder="e.g. XinYu Chen" required>
                 <small class="text-muted">Full name as displayed on card</small>
                 <div class="invalid-feedback">
                   Name on card is required
                 </div>
-              </div>
-              <div class="col-md-6 mb-3">
+                </div>
+           
+              <div class="col-md-0 mb-3">
                 <label for="cc-number">Credit card number</label>
-                <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                <input type="text" class="form-control" id="cc-number" placeholder="1234 5678 9012 2345" required>
                 <div class="invalid-feedback">
                   Credit card number is required
                 </div>
               </div>
             </div>
             <div class="row">
-              <div class="col-md-3 mb-3">
+              <div class="col-md-6 mb-3">
                 <label for="cc-expiration">Expiration</label>
-                <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+                <input type="text" class="form-control" id="cc-expiration" placeholder="MM/YY" required>
                 <div class="invalid-feedback">
                   Expiration date required
                 </div>
+                <br>
               </div>
-              <div class="col-md-3 mb-3">
+              <div class="col-md-6 mb-3">
                 <label for="cc-expiration">CVV</label>
-                <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                <input type="text" class="form-control" id="cc-cvv" placeholder="e.g. 123" required>
                 <div class="invalid-feedback">
                   Security code required
                 </div>
               </div>
             </div>
             <br>
+            
             <h4 class="mb-3">Billing address</h4>
             <div class="mb-3">
               <label for="address">Address</label>
-              <input type="text" class="form-control" id="billing address" placeholder="1234 Main St" required>
+              <input type="text" class="form-control" id="billing address" placeholder="e.g. 1234 Main St" required>
               <div class="invalid-feedback">
                 Please enter your shipping address.
               </div>
@@ -97,7 +97,7 @@
 
            
             <div class="row">
-              <div class="col-md-5 mb-3">
+              <div class="col-md-6 mb-3">
                 <label for="country">Country</label>
                 <select class="custom-select d-block w-100" id="billing country" required>
                   <option value="">Choose...</option>
@@ -112,7 +112,7 @@
                   Please select a valid country.
                 </div>
               </div>
-              <div class="col-md-4 mb-3">
+              <div class="col-md-6 mb-3">
                 <label for="state">State</label>
                 <select class="custom-select d-block w-100" id="billing state" required>
                   <option value="">Choose...</option>
@@ -126,7 +126,9 @@
                   Please provide a valid state.
                 </div>
               </div>
-              <div class="col-md-4 mb-3">
+              </div>
+              <div class="row">
+              <div class="col-md-6 mb-3">
                 <label for="state">City</label>
                 <select class="custom-select d-block w-100" id="billing city" required>
                   <option value="">Choose...</option>
@@ -143,9 +145,9 @@
                   Please provide a valid city.
                 </div>
               </div>
-              <div class="col-md-3 mb-3">
+              <div class="col-md-6 mb-3">
                 <label for="zip">Zip</label>
-                <input type="text" class="form-control" id="billing zip" placeholder="" required>
+                <input type="text" class="form-control" id="billing zip" placeholder="e.g. 69100" required>
                 <div class="invalid-feedback">
                   Zip code required.
                 </div>
@@ -158,21 +160,21 @@
          
             <div class="mb-3">
               <label for="address">Shipping Address</label>
-              <input type="text" class="form-control" id="ship address" placeholder="1234 Main St" required>
+              <input type="text" class="form-control" id="ship address" placeholder="e.g. 1234 Main St" required>
               <div class="invalid-feedback">
                 Please enter your shipping address.
               </div>
             </div>
             <div class="mb-3">
               <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
-              <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+              <input type="text" class="form-control" id="address2" placeholder="Your Apartment or suite">
             </div>
            
               
     
               <div class="mb-3">
                 <label for="zip">Zip</label>
-                <input type="text" class="form-control" id="ship zip" placeholder="" required>
+                <input type="text" class="form-control" id="ship zip" placeholder="e.g. 68100" required>
                 <div class="invalid-feedback">
                   Zip code required.
                 </div>
