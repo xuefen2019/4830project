@@ -1,18 +1,22 @@
 <html>
 <head>
     <link rel="stylesheet" href="rate.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="table2.css">
 </head>
 <body>
 <div id="app">
 
-    <h2>You Have Completed Your order, plz rate our service</h2>
-    <div @mouseleave="showCurrentRating(0)" style="display:inline-block;">
+    <h2 align="center">Order Completed!</h2>
+    <h2 align="center">Please rate our service</h2>
+    <div style="width:250px; margin:0 auto;" align="center" @mouseleave="showCurrentRating(0)" style="display:inline-block;">
         <star-rating :show-rating="false" @current-rating="showCurrentRating" @rating-selected="setCurrentSelectedRating" :increment="0.5"></star-rating>
     </div>
-    <div style="margin-top:10px;font-weight:bold;">{{currentRating}}</div>
+    <div style="width:200px; margin:0 auto; margin-top:10px;font-weight:bold;">{{currentRating}}</div>
 
-	<p>You can click order details to view your order status!</p>
-	<a href="customer.html">go back to home page</a>
+	<p align="center">You can click order details to view your order status!</p>
+	<p style="text-align:center;"><a href="customer.html">go back to home page</a></p>
+
 
 </div>
 

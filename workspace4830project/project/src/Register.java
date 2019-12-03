@@ -33,10 +33,12 @@ public class Register extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String email = request.getParameter("email");
-        String password = request.getParameter("psw");
+        String password = request.getParameter("psw1");
+        String password2 = request.getParameter("psw2");
         String name = request.getParameter("name");
         String phone = request.getParameter("phone");
-        
+        if (password.equals(password2))
+        {
         Connection connection = null;
         String sql = "INSERT INTO user (id, EMAIL, PASSWORD, NAME, PHONE) values (default, ?, ?, ?, ?)";
         try
@@ -60,20 +62,37 @@ public class Register extends HttpServlet {
         String docType = "<!doctype html public \"-//w3c//dtd html 4.0 " + "transitional//en\">\n";
         out.println(docType + //
               "<html>\n" + //
-              "<head><title>" + title + "</title></head>\n" + //
+              "<head><link rel=\"stylesheet\" type=\"text/css\" href=\"bootstrap.min.css\"></head>\n" + //
               "<body bgcolor=\"#f0f0f0\">\n" + //
-              "<h2 align=\"center\">" + title + "</h2>\n" + //
-              "<ul>\n" + //
-              "  <li><b>User Name</b>: " + name + "\n" + //
-              "  <li><b>Email</b>: " + email + "\n" + //
-              "  <li><b>Password</b>: " + password + "\n" + //
-              "  <li><b>Phone</b>: " + phone + "\n" + //
-
-        "<p>Sign in here <a href=\"login.html\">Sign in</a>.</p>" +
-
-                "</ul>\n");
+              "<h2 align=\"center\">" + title + "</h2>\n" +
+              "  <p align=\"center\">" + name + "</p>\n" + //
+              "  <p align=\"center\">" + email + "</p>\n" + //
+              "  <p align=\"center\">" + password + "</p>\n" + //
+              "  <p align=\"center\">" + phone + "</p>\n" + //
+        "<p align=\"center\">Sign in here <a href=\"login.html\">Sign in</a>.</p>"
+        		);
         out.println("</body></html>");
-        
+        }
+        else
+        {
+            response.setContentType("text/html");
+            PrintWriter out = response.getWriter();
+            String title = "Registeration Failed!";
+            String docType = "<!doctype html public \"-//w3c//dtd html 4.0 " + "transitional//en\">\n";
+            out.println(docType + //
+                  "<html>\n" + //
+                  "<head><link rel=\"stylesheet\" type=\"text/css\" href=\"bootstrap.min.css\">\n"+
+                  "<style> .content {max-width: 500px; margin: auto; }</style>\n" +
+                  "</head>\n" + //
+                  "<body bgcolor=\"#f0f0f0\">\n" + //
+                  "<div class=\"content\">" +
+                  "<h2 align=\"center\">" + title + "</h2>\n" + //
+                  "  <p align=\"center\">" + "Two password not match" + "</p>\n" + //
+                  "<p align=\"center\">Try to register again here! <a href=\"register.html\">Register</a>.</p>" +
+                  "</div>" 
+                    );
+            out.println("</body></html>");
+        }
 	}
 
 	/**

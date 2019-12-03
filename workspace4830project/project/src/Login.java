@@ -85,17 +85,16 @@ public class Login extends HttpServlet {
         }
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        String title = "Home Page";
+        String title = "Sign in Error detected !";
         String docType = "<!doctype html public \"-//w3c//dtd html 4.0 " + "transitional//en\">\n";
         out.println(docType + //
               "<html>\n" + //
-              "<head><title>" + title + "</title></head>\n" + //
+              "<head><link rel=\"stylesheet\" type=\"text/css\" href=\"bootstrap.min.css\"></head>\n" + //
               "<body bgcolor=\"#f0f0f0\">\n" + //
-              "<h2 align=\"center\">" + title + "</h2>\n" + //
-              "<ul>\n" + //
-              "  <li><b></b> " + a + "\n" + //
-              "<p>Try to login again here <a href=\"login.html\">Sign in</a>.</p>" +
-                "</ul>\n");
+              "<h2 align=\"center\">" + title + "</h2>\n\n" + //
+              "  <p align=\"center\">" + a + "</p>\n" + //
+              "<p align=\"center\">Try to login in again here <a href=\"login.html\">Sign in</a>.</p>"
+                );
         out.println("</body></html>");
         if (tem == 1)
         {
@@ -103,7 +102,7 @@ public class Login extends HttpServlet {
         }
         else if (tem == 2)
         {
-        	response.sendRedirect("admin.html");
+        response.sendRedirect("admin.html");
         }
 	}
 

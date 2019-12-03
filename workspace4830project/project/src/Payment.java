@@ -46,7 +46,7 @@ public class Payment extends HttpServlet {
             PreparedStatement preparedStmt = connection.prepareStatement(sql);
             preparedStmt.setString(1, tem1);
             preparedStmt.setString(2, tem2);
-            preparedStmt.setString(3, "what");
+            preparedStmt.setString(3, tem3);
             preparedStmt.setString(4, address1+", "+address2+", "+zip);
             preparedStmt.setString(5, "pending");
             preparedStmt.execute();
