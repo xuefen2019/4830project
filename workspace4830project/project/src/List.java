@@ -110,6 +110,7 @@ public class List extends HttpServlet {
 	            		"<td class=\"cell100 column6\">" + status + "</td>\n"
 	            		);
          	    out.println("</tr>\n");
+         	   foodresult = "";
 	         }
 	         out.println(
 	      		"                 </tbody>"+ "\n" +

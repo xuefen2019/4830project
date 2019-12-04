@@ -110,6 +110,7 @@ public class Detail extends HttpServlet {
 	            		"<td class=\"cell100 column5\">" + status + "</td>\n"
 	            		);
          	    out.println("</tr>\n");
+         	   foodresult = "";
 	         }
 	         out.println(
 	      		"                 </tbody>"+ "\n" +
